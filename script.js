@@ -1,7 +1,28 @@
-let container = document.createElement('div');
-let body = document.querySelector('body');
+// grabs reference to body
+const body = document.querySelector('body');
 
-body.style = "display: flex; justify-content: center; align-items: center; height: 100vh;"
-container.style = "border: 2px solid black; height: 80vh; width: 80vw";
+// declare variables 
+const container = document.querySelector('#container');
+const newDiv = document.createElement('div');
 
-body.appendChild(container);
+
+// adds class to all divs and stores their nodelist in new
+newDiv.className = "newDivs";
+const newDivs = document.querySelectorAll('.newDivs');
+
+
+newDivs.forEach(newDiv => {
+    newDiv.addEventListener('click', () => {
+        console.log('clicked');
+    });
+});
+
+
+function gridCreator() {
+    for (i = 0; i < 256; i++) {
+        container.appendChild(newDiv.cloneNode());
+    }
+}
+
+
+gridCreator()
