@@ -18,13 +18,14 @@ function makeCell (gridSize) {
     });
 }
 
-// make grid
+// make grid by using both numRows and numColumns (CSS Variables) as values 
+// for our CSS properties grid-template-rows and grid-template-columns
 
 function makeGrid(numRows, numColumns) {
     container.style.setProperty('--numRows', numRows);
     container.style.setProperty('--numColumns', numColumns);
     for (i = 0; i < numRows; i++) {
-        makeCell(numRows);
+        makeCell(numRows); 
     }
 }
 
