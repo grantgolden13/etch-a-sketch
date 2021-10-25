@@ -1,31 +1,40 @@
-// grab references to body and container elements
+// grab reference to grid container
 
-const body = document.querySelector('body');
-const container = document.querySelector('#container');
+const container = document.querySelector('#grid');
 
-// create new divs
+// make new divs
 
-const newDiv = document.createElement('div');
-newDiv.className = "newDivs";
-
-// create grid
-
-function gridCreator() {
-    for (i = 0; i < 256; i++) {
-        container.appendChild(newDiv.cloneNode());
+function makeCell (gridSize) {
+    for (let i = 0; i < gridSize; i++) {
+        let newCell = document.createElement('div');
+        newCell.classList.add('newCells');
+        container.appendChild(newCell);
     }
 }
 
-gridCreator()
+// add drawing functionality w/ event listeners
 
-// grab reference to a nodelist of all divs
-
-const divs = document.querySelectorAll('#container > div');
-
-// add event listeners to each
-
-divs.forEach(element => {
-    element.addEventListener('mouseover', function mouseOver(e) {
+const divs = document.querySelectorAll('.newCells');
+divs.forEach(div => {
+    div.addEventListener('mouseover', function mouseOver(e) {
         e.target.style = "background-color: black";
-    })
+    });
 });
+
+// makes grid
+
+function makeGrid() {
+    let sides = prompt("How many grid squares per side? (16-100)", 24);
+    console.log(sides);
+    
+    return sides;
+}
+
+// reset button
+
+const resetButton = document.getElementById('reset-btn');
+resetButton.addEventListener('click', function () {
+        window.location.reload();
+});
+
+makeGrid();

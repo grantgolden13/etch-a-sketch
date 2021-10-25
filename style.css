@@ -1,20 +1,45 @@
+:root {
+    --numColumns: 1;
+    --numRows: 1;
+}
+
+*,
+html {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0;
+}
+
 body {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    row-gap: 24px;
 }
 
-#container {
+#grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(var(--numColumns), 1fr);
+    grid-template-rows: repeat(var(--numRows), 1fr);
+    width: 650px;
+    height: 650px;
     border: 2px solid black;
-    height: 448px;
-    width: 448px;
-    display: flex;
-    flex-flow: row wrap;
 }
 
 .newDivs {
-    border: 2px solid red;
-    height: 24px;
-    width: 24px;
+    display: flex;
+    padding: 3px;
+    border: 1px solid red;
+}
+
+#reset-btn {
+    height: 48px;
+    width: 144px;
 }
