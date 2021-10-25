@@ -28,8 +28,8 @@ body {
     justify-content: center;
     grid-template-columns: repeat(var(--numColumns), 1fr);
     grid-template-rows: repeat(var(--numRows), 1fr);
-    width: 650px;
-    height: 650px;
+    width: 648px;
+    height: 648px;
     border: 2px solid black;
 }
 

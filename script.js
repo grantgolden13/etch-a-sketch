@@ -13,7 +13,8 @@ function makeCell (gridSize) {
     let cells = document.querySelectorAll('.newCells');
     cells.forEach(div => {
         div.addEventListener('mouseover', function mouseOver(e) {
-            e.target.style = "background-color: black";
+            e.target.style.backgroundColor = 'black';
+            // e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
         });
     });
 }
@@ -29,7 +30,7 @@ function makeGrid(numRows, numColumns) {
     }
 }
 
-// prompt user for # of grid cells per side, pass that value thru makeGrid()
+// prompts user for # of grid cells per side, pass that value thru makeGrid()
 
 function promptNewGrid() {
     let number = prompt("How many cells per side? (16-72)", 64);
@@ -47,5 +48,7 @@ const resetButton = document.getElementById('reset-btn');
 resetButton.addEventListener('click', function () {
         window.location.reload();
 });
+
+// call the function to prompt the user
 
 promptNewGrid();
